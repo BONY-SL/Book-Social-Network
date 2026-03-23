@@ -1,5 +1,6 @@
 package com.diphlk.book.handler;
 
+import com.diphlk.book.exception.OperationNotPermittedException;
 import jakarta.mail.MessagingException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -83,6 +84,17 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(ExceptionResponse.builder()
                         .businessExceptionDescription("Internal Server Error, Contact support Admin")
+                        .error(exception.getMessage())
+                        .build());
+    }
+
+    @ExceptionHandler(OperationNotPermittedException.class)
+    public ResponseEntity<ExceptionResponse> handleOperationNotPermittedException(
+            OperationNotPermittedException exception
+    ){
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(ExceptionResponse.builder()
                         .error(exception.getMessage())
                         .build());
     }

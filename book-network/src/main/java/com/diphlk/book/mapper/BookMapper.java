@@ -2,7 +2,9 @@ package com.diphlk.book.mapper;
 
 import com.diphlk.book.dto.BookRequest;
 import com.diphlk.book.dto.BookResponse;
+import com.diphlk.book.dto.BorrowedBookResponse;
 import com.diphlk.book.model.Book;
+import com.diphlk.book.model.BookTransactionHistory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +35,18 @@ public class BookMapper {
                 .bookCover(null)
                 .archived(book.isArchived())
                 .rate(book.getRate())
+                .build();
+    }
+
+    public BorrowedBookResponse toBorrowedBookResponse(BookTransactionHistory bookTransactionHistory) {
+        return BorrowedBookResponse.builder()
+                .id(bookTransactionHistory.getBook().getId())
+                .title(bookTransactionHistory.getBook().getTitle())
+                .authorName(bookTransactionHistory.getBook().getAuthor())
+                .isbn(bookTransactionHistory.getBook().getIsbn())
+                .rate(bookTransactionHistory.getBook().getRate())
+                .returned(bookTransactionHistory.isReturned())
+                .returnApproved(bookTransactionHistory.isReturnApproved())
                 .build();
     }
 }
