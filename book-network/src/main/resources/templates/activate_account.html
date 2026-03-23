@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Activation</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0d0f14;
+            --surface: #13161e;
+            --surface-2: #1a1e2a;
+            --border: rgba(255,255,255,0.07);
+            --accent: #4f8ef7;
+            --accent-glow: rgba(79, 142, 247, 0.25);
+            --accent-2: #a78bfa;
+            --text-primary: #f0f2f8;
+            --text-secondary: #8892aa;
+            --text-muted: #525d74;
+            --code-bg: #0a0c12;
+            --radius: 16px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg);
+            background-image:
+                    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(79, 142, 247, 0.12), transparent),
+                    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(167, 139, 250, 0.08), transparent);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 560px;
+            animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Top brand bar ── */
+        .brand-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            padding-left: 4px;
+        }
+
+        .brand-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.5; transform: scale(0.7); }
+        }
+
+        .brand-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ── Card ── */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow:
+                    0 0 0 1px rgba(255,255,255,0.03) inset,
+                    0 40px 80px rgba(0,0,0,0.5);
+        }
+
+        /* ── Hero band ── */
+        .hero {
+            padding: 40px 40px 32px;
+            background: linear-gradient(135deg, #141828 0%, #111420 100%);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                    radial-gradient(circle 200px at 10% 120%, rgba(79,142,247,0.15), transparent),
+                    radial-gradient(circle 160px at 90% -10%, rgba(167,139,250,0.12), transparent);
+            pointer-events: none;
+        }
+
+        .hero-eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ── Body ── */
+        .body {
+            padding: 36px 40px 40px;
+        }
+
+        .greeting {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        /* Uses Thymeleaf th:text - shown as static fallback below */
+        .greeting-thymeleaf {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .intro {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 32px;
+        }
+
+        /* ── Code block ── */
+        .code-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .activation-code-wrap {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 24px;
+            text-align: center;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activation-code-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent);
+            opacity: 0.7;
+        }
+
+        .activation-code {
+            font-family: 'Syne', monospace;
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            color: var(--text-primary);
+            text-shadow: 0 0 40px rgba(79,142,247,0.3);
+        }
+
+        .code-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* ── Divider ── */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .divider-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 0.06em;
+        }
+
+        /* ── CTA button ── */
+        .activation-link {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .activation-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--accent) 0%, #3b6fd4 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            box-shadow:
+                    0 0 0 1px rgba(255,255,255,0.12) inset,
+                    0 8px 24px rgba(79, 142, 247, 0.35);
+            transition:
+                    transform 0.18s ease,
+                    box-shadow 0.18s ease,
+                    filter 0.18s ease;
+        }
+
+        .activation-link a:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                    0 0 0 1px rgba(255,255,255,0.18) inset,
+                    0 14px 32px rgba(79, 142, 247, 0.45);
+            filter: brightness(1.08);
+        }
+
+        .activation-link a:active {
+            transform: translateY(0);
+        }
+
+        .btn-arrow {
+            display: inline-block;
+            transition: transform 0.18s ease;
+        }
+
+        .activation-link a:hover .btn-arrow {
+            transform: translateX(3px);
+        }
+
+        /* ── Notice ── */
+        .notice {
+            background: rgba(167,139,250,0.06);
+            border: 1px solid rgba(167,139,250,0.15);
+            border-radius: 10px;
+            padding: 14px 18px;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        .notice strong {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            padding: 20px 40px 24px;
+            border-top: 1px solid var(--border);
+            background: var(--surface-2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .footer-left {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-secondary);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 480px) {
+            .hero, .body { padding-left: 24px; padding-right: 24px; }
+            .footer { padding-left: 24px; padding-right: 24px; flex-direction: column; align-items: flex-start; }
+            .activation-code { font-size: 30px; }
+            .hero h1 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <div class="brand-bar">
+        <div class="brand-dot"></div>
+        <span class="brand-name">Book Social Network</span>
+    </div>
+
+    <div class="card">
+
+        <!-- Hero -->
+        <div class="hero">
+            <div class="hero-eyebrow">Action Required</div>
+            <h1>Activate your<br><span>account</span></h1>
+        </div>
+
+        <!-- Body -->
+        <div class="body">
+
+            <!-- Thymeleaf greeting — th:text replaces the static text at runtime -->
+            <p class="greeting" th:text="'Hello ' + ${username} + ','"></p>
+
+            <p class="intro">
+                Thanks for signing up! To get started, enter the code below or click the button to verify your email address and activate your account.
+            </p>
+
+            <div class="code-label">Your activation code</div>
+            <div class="activation-code-wrap">
+                <!-- Thymeleaf renders the real code at runtime -->
+                <div class="activation-code" th:text="${activation_code}"></div>
+                <div class="code-sub">Valid for 15 Mins &nbsp;·&nbsp; Do not share this code</div>
+            </div>
+
+            <div class="divider">
+                <div class="divider-line"></div>
+                <span class="divider-text">or use the link</span>
+                <div class="divider-line"></div>
+            </div>
+
+            <div class="activation-link">
+                <!-- Thymeleaf binds the real URL at runtime -->
+                <a th:href="${confirmationUrl}" target="_blank">
+                    Activate your account
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+
+            <div class="notice">
+                <strong>Didn't sign up?</strong> You can safely ignore this email. If you're concerned about your account security, please contact our support team.
+            </div>
+
+        </div><!-- /body -->
+
+        <!-- Footer -->
+        <div class="footer">
+            <span class="footer-left">© 2026 Book Social Network, Inc.</span>
+            <nav class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Support</a>
+            </nav>
+        </div>
+
+    </div><!-- /card -->
+
+</div><!-- /wrapper -->
+</body>
+</html>

@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345
-      POSTGRES_DB: book_social_network
+      POSTGRES_DB: book_network
       PGDATA: /var/lib/postgresql/data
     volumes:
       - postgres:/data/postgres

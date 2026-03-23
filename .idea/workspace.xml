@@ -4,28 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2e17aa1-bdbd-44b2-bb92-dc691539e5f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/config/BeanConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/model/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/model/Token.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/repository/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/repository/TokenRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/security/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/security/JwtService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/security/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/security/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/resources/application-dev.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    <list default="true" id="a2e17aa1-bdbd-44b2-bb92-dc691539e5f1" name="Changes" comment="spring security config">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/config/ApplicationAuditAware.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/controller/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/controller/BookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/dto/AuthenticateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/dto/AuthenticationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/dto/BookRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/dto/BookResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/dto/PageResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/dto/RegistrationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/handler/BusinessErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/handler/ExceptionResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/handler/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/mapper/BookMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/model/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/model/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/model/BookTransactionHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/model/FeedBack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/repository/BookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/service/AuthenticationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/service/BookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/util/EmailTemplate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/book-network/src/main/resources/templates/activate_account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/BookNetworkApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/BookNetworkApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/config/BeanConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/config/BeanConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/security/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/security/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/book-network/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +49,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -46,37 +62,51 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="3BGBeEv8MHREtLeHUlNa40MzudH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.diphlk.book.security" />
+      <recent name="com.diphlk.book.dto" />
+      <recent name="com.diphlk.book.mapper" />
+      <recent name="com.diphlk.book.service" />
+      <recent name="com.diphlk.book.handler" />
+      <recent name="com.diphlk.book.util" />
     </key>
   </component>
   <component name="RunManager">
@@ -96,11 +126,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1774105626221</updated>
-      <workItem from="1774105626562" duration="10013000" />
+      <workItem from="1774105626562" duration="10241000" />
+      <workItem from="1774156737691" duration="79000" />
+      <workItem from="1774156955344" duration="14576000" />
+      <workItem from="1774188920155" duration="9093000" />
     </task>
+    <task id="LOCAL-00001" summary="spring security config">
+      <option name="closed" value="true" />
+      <created>1774115919033</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1774115919034</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="spring security config" />
+    <option name="LAST_COMMIT_MESSAGE" value="spring security config" />
   </component>
 </project>
