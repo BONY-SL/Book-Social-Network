@@ -5,6 +5,7 @@ import com.diphlk.book.dto.BookResponse;
 import com.diphlk.book.dto.BorrowedBookResponse;
 import com.diphlk.book.model.Book;
 import com.diphlk.book.model.BookTransactionHistory;
+import com.diphlk.book.util.FileUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class BookMapper {
                 .isbn(book.getIsbn())
                 .shareable(book.isShareable())
                 .ownerName(book.getOwner().fullName())
-                .bookCover(null)
+                .bookCover(FileUtils.readFileFromPath(book.getBookCoverUrl()))
                 .archived(book.isArchived())
                 .rate(book.getRate())
                 .build();

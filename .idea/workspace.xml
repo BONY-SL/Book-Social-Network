@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2e17aa1-bdbd-44b2-bb92-dc691539e5f1" name="Changes" comment="Book Service">
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/dto/BorrowedBookResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/exception/OperationNotPermittedException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/repository/BookTransactionHistoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/controller/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/handler/BusinessErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/handler/BusinessErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/handler/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/handler/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/mapper/BookMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/mapper/BookMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/book-network/src/main/java/com/diphlk/book/service/BookService.java" afterDir="false" />
-    </list>
+    <list default="true" id="a2e17aa1-bdbd-44b2-bb92-dc691539e5f1" name="Changes" comment="Book Controller" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +94,7 @@
       <workItem from="1774156737691" duration="79000" />
       <workItem from="1774156955344" duration="14576000" />
       <workItem from="1774188920155" duration="9093000" />
-      <workItem from="1774273628022" duration="6357000" />
+      <workItem from="1774273628022" duration="6490000" />
     </task>
     <task id="LOCAL-00001" summary="spring security config">
       <option name="closed" value="true" />
@@ -122,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774274868339</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Book Controller">
+      <option name="closed" value="true" />
+      <created>1774280109527</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1774280109527</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +129,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="spring security config" />
     <MESSAGE value="Book Service" />
-    <option name="LAST_COMMIT_MESSAGE" value="Book Service" />
+    <MESSAGE value="Book Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Book Controller" />
   </component>
 </project>

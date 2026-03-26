@@ -10,8 +10,6 @@ import java.util.Optional;
 
 public interface BookTransactionHistoryRepository extends JpaRepository<BookTransactionHistory, Integer> {
 
-
-
     @Query(
             """
             SELECT borrowing

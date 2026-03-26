@@ -19,6 +19,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,6 +31,7 @@ public class BookService {
     private final BookMapper bookMapper;
     private final BookRepository bookRepository;
     private final BookTransactionHistoryRepository bookTransactionHistoryRepository;
+    private final FileStorageService fileStorageService;
 
     public Integer saveBook(BookRequest bookRequest, Authentication connectedUser) {
         User user = (User) connectedUser.getPrincipal();
@@ -211,5 +213,17 @@ public class BookService {
                 .orElseThrow(() -> new EntityNotFoundException("No borrowing record found for the book with the ID :: " + bookId));
         bookTransactionHistory.setReturnApproved(true);
         return bookTransactionHistoryRepository.save(bookTransactionHistory).getId();
+    }
+
+    public void uploadBookCover(Integer bookId, MultipartFile coverImage, Authentication connectedUser) {
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new EntityNotFoundException("No book found with the ID :: " + bookId));
+        User user = (User) connectedUser.getPrincipal();
+        if (!book.getOwner().getId().equals(user.getId())) {
+            throw new OperationNotPermittedException("You can only upload cover image for your own books");
+        }
+        var bookCover = fileStorageService.storeFile(coverImage, user.getId());
+        book.setBookCoverUrl(bookCover);
+        bookRepository.save(book);
     }
 }
